@@ -1,0 +1,30 @@
+package com.ticket.spring.service;
+
+import javax.ws.rs.core.Response;
+
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.ticket.spring.dao.TicketDao;
+import com.ticket.spring.model.TicketOption;
+
+@Component
+public class TicketServiceImpl implements TicketService
+{
+	
+	@Autowired 
+	TicketDao tdao;
+	
+	Response response;
+	
+	Logger logger = Logger.getLogger(TicketServiceImpl.class);
+	
+	public Response getTicketOption(TicketOption toption)
+	{
+		logger.info("In TicketServiceImpl");
+		response=tdao.getTicketOption(toption);
+		return response;
+	}
+
+}

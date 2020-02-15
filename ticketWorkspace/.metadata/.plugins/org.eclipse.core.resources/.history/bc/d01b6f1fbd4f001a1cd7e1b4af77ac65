@@ -1,0 +1,71 @@
+package com.ticket.spring.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.core.Response;
+
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.ticket.spring.model.TicketOption;
+import com.ticket.spring.service.TicketService;
+
+@Controller
+public class TicketController 
+{
+	
+	Logger logger=Logger.getLogger(TicketController.class);
+	
+	
+	  @Autowired 
+	  private TicketService ticketservice;
+	 
+	
+	@RequestMapping(value="/")
+	public String home() 
+	{
+		logger.info("Working");
+		System.out.println("It's Working ?");
+		return "home";
+	}
+	
+	@RequestMapping(value="/displayresult" , method=RequestMethod.POST)
+	public Response ticketResult(TicketOption toption,HttpServletRequest request,HttpServletResponse response)
+	{
+		
+		String data = request.getParameter("ticketoption");
+		
+		toption.setTicketoption(data);
+		logger.info("Ticket value : "+data);
+		logger.info("In TicketController");
+		
+		/*
+		 * ticketservice.getTicketOption(toption) ;
+		 * 
+		 * 
+		 * ModelAndView model = new ModelAndView("/displayresult");
+		 * model.addObject("message", toption);
+		 * 
+		 * List<TicketOption> ticList = new ArrayList<TicketOption>();
+		 * 
+		 * for(TicketOption tic : ticList) {
+		 * logger.info("-----------------------------------------");
+		 * logger.info("Id : "+tic.getId()); logger.info("Id : "+tic.getFirstname());
+		 * logger.info("Id : "+tic.getLastname()); logger.info("Id : "+tic.getAge());
+		 * logger.info("-----------------------------------------"); }
+		 */
+		 
+		 
+		
+		 //return model;
+		return ticketservice.getTicketOption(toption) ; 
+	}
+
+}
