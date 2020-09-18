@@ -3,3 +3,5 @@ E:\jdbcTesting\ticketmanager\ticketWorkspace\.metadata\.plugins\org.eclipse.jst.
 \TicketTrack\src\main\resources
 E:\jdbcTesting\ticketmanager\ticketWorkspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\666087846.index
 \TicketTrack\src\main\resources
+D:\ticketajaxcall\ticketWorkspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\666087846.index
+\TicketTrack\src\main\java
